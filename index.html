@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#8c52ff">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <title>15 anos da Bia</title>
+    <link rel="preload" as="video" href="video/abertura.mp4" type="video/mp4">
+    <link rel="preload" as="audio" href="audio/musica.mp3" type="audio/mpeg">
+    <link rel="preload" as="image" href="imagens/foto1.jpg">
+    <link rel="preload" as="image" href="imagens/foto2.jpg">
+    <link rel="preload" as="image" href="imagens/foto3.jpg">
+    <link rel="preload" as="image" href="imagens/foto4.jpg">
+    <link rel="preload" as="image" href="imagens/foto5.jpg">
+    <link rel="preload" as="image" href="imagens/foto6.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bloqueado acesso-pendente">
+    <section id="acessoNegado" aria-live="polite" aria-label="Acesso restrito">
+        <div class="acesso-negado-cartao">
+            <h2>Convite Privado</h2>
+            <p>Este convite exige um token de acesso válido.</p>
+            <p>Abra novamente usando o link completo enviado pelo anfitrião.</p>
+        </div>
+    </section>
+
+    <section id="abertura" aria-label="Tela de abertura do convite">
+        <video id="videoAbertura" autoplay muted playsinline loop preload="auto" poster="imagens/foto1.jpg">
+            <source src="video/abertura.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo em HTML5.
+        </video>
+
+        <div class="camada-abertura">
+            <div class="caixa-abertura">
+                <p class="subtitulo-abertura">Convite Especial</p>
+                <h1>15 anos da Bia</h1>
+                <button id="btnAbrirConvite" class="botao-abrir" type="button">
+                    Abrir Convite
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <audio id="musicaFundo" loop preload="auto">
+        <source src="audio/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="botaoSom" class="controle-som" type="button" title="Ativar ou pausar música" aria-label="Ativar ou pausar música">
+        ▶
+    </button>
+
+    <div id="setasNavegacao" class="setas-navegacao" aria-label="Navegação para cima e para baixo" hidden>
+        <button id="setaSubir" class="seta-navegacao" type="button" aria-label="Subir página" title="Subir">
+            ↑
+        </button>
+        <button id="setaDescer" class="seta-navegacao" type="button" aria-label="Descer página" title="Descer">
+            ↓
+        </button>
+    </div>
+
+    <main id="convite" aria-live="polite">
+        <header class="topo-convite">
+            <nav class="menu-ancoras" aria-label="Seções do convite">
+                <a href="#inicio">Início</a>
+                <a href="#informacoes">Informações</a>
+                <a href="#presentes">Presentes</a>
+                <a href="#duvidas">Dúvidas</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#confirmacao">Confirmar</a>
+            </nav>
+        </header>
+
+        <section class="secao" id="inicio">
+            <div class="cartao reveal">
+                <p class="subtitulo">Você está convidado para celebrar</p>
+                <h2>15 anos da Bia</h2>
+                <p class="frase">
+                    Deus esteve presente em cada passo e em cada sonho que me trouxe até aqui.
+                    Com gratidão no coração, celebro quinze anos de uma história que Ele continua escrevendo.
+                </p>
+                <p class="data-principal">3 de outubro de 2026, às 19h</p>
+
+                <div id="contador" class="contador" aria-label="Contagem regressiva para o evento">
+                    <div class="contador-item"><span id="dias" class="contador-numero">00</span><span class="contador-label">Dias</span></div>
+                    <div class="contador-item"><span id="horas" class="contador-numero">00</span><span class="contador-label">Horas</span></div>
+                    <div class="contador-item"><span id="minutos" class="contador-numero">00</span><span class="contador-label">Min</span></div>
+                    <div class="contador-item"><span id="segundos" class="contador-numero">00</span><span class="contador-label">Seg</span></div>
+                </div>
+
+                <div class="botoes">
+                    <a href="#informacoes" class="botao">Ver detalhes da festa</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao" id="informacoes">
+            <div class="cartao reveal">
+                <h2>Informações da Festa</h2>
+                <p>Será uma alegria ter você conosco neste momento tão especial.</p>
+
+                <table class="tabela-info" aria-label="Dados principais da festa">
+                    <tbody>
+                        <tr>
+                            <th>Data</th>
+                            <td>3 de outubro de 2026</td>
+                        </tr>
+                        <tr>
+                            <th>Horário</th>
+                            <td>19h</td>
+                        </tr>
+                        <tr>
+                            <th>Local</th>
+                            <td>Castello Trevizzo Eventos - Salão Vêneto</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="botoes">
+                    <a href="https://ul.waze.com/ul?venue_id=203621898.2036087907.3867261&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer" class="botao">Abrir no Waze</a>
+                    <a href="https://www.google.com/maps/place/Castello+Trevizzo+Eventos/@-25.4135318,-49.3191343,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce173f6ffec2d:0x7f0f3ed35dc5c2a2!8m2!3d-25.4135318!4d-49.3165594!16s%2Fg%2F1yfjftx3j?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="botao secundario">Abrir no Google Maps</a>
+                    <a href="#presentes" class="botao">Ver lista de presentes</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao" id="presentes">
+            <div class="cartao reveal">
+                <h2>Lista de Presentes</h2>
+                <p>Sua presença é o presente mais importante. Se desejar presentear, seguem algumas sugestões.</p>
+
+                <div class="presentes">
+                    <div class="presente">
+                        <strong>Calçados número 35</strong>
+                        <span>Crocs, Vans, Nike, Adidas.</span>
+                    </div>
+                    <div class="presente">
+                        <strong>Roupas</strong>
+                        <span>Blusas, jaqueta, moletom, cores neutras. Camisetas: Ordem Paranormal, AC/DC, Guns N’ Roses.</span>
+                    </div>
+                    <div class="presente">
+                        <strong>Acessórios dourado ou prata</strong>
+                        <span>Brincos, colares, anel (13/14) e berloques. Evite pedras grandes.</span>
+                    </div>
+                    <div class="presente">
+                        <strong>Livros</strong>
+                        <span>Ordem Paranormal, FNAF exceto 1 e 2.</span>
+                    </div>
+                    <div class="presente">
+                        <strong>Bodysplash</strong>
+                    </div>
+                    <div class="presente">
+                        <strong>Câmera canon</strong>
+                    </div>
+                    <div class="presente">
+                        <strong>Bolsa</strong>
+                    </div>
+                    <div class="presente">
+                        <strong>Garrafa Stanley</strong>
+                    </div>
+                    <div class="presente">
+                        <strong>Smartwatch</strong>
+                    </div>
+                    <div class="presente">
+                        <strong>Fone de ouvido</strong>
+                    </div>
+                    <div class="presente">
+                        <strong>Funko pop</strong>
+                    </div>
+                    <div class="presente">
+                        <strong>Porta joias</strong>
+                    </div>
+                    <div class="presente">
+                        <strong>Vale presente</strong>
+                        <span>Zara, C&amp;A, Youcom, Sephora, Riachuelo, Renner.</span>
+                    </div>
+                    <div class="presente">
+                        <strong>Perfumes</strong>
+                        <span>XS For Her Rabanne Eau de Parfum, Good Girl.</span>
+                    </div>
+                </div>
+
+                <div class="botoes">
+                    <a href="#duvidas" class="botao">Ver dúvidas frequentes</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao" id="duvidas">
+            <div class="cartao reveal">
+                <h2>Dúvidas Frequentes</h2>
+
+                <div class="duvidas-lista">
+                    <article class="duvida-item">
+                        <h3>Posso levar acompanhante?</h3>
+                        <p>Adoraria convidar mais pessoas, mas infelizmente tivemos que limitar a lista ao número exato de lugares que o espaço comporta.</p>
+                    </article>
+
+                    <article class="duvida-item">
+                        <h3>Qual é o traje?</h3>
+                        <p>Traje passeio completo.</p>
+                    </article>
+
+                    <article class="duvida-item">
+                        <h3>Cores proibidas?</h3>
+                        <p>Lilaz e roxo são as cores da debutante.</p>
+                    </article>
+
+                    <article class="duvida-item">
+                        <h3>Confirmar presença?</h3>
+                        <p>Cada detalhe desta noite está sendo cuidadosamente preparado com amor e dedicação. Por isso, pedimos que confirme sua presença até o dia 01/09/2026.</p>
+                    </article>
+                </div>
+
+                <div class="botoes">
+                    <a href="#galeria" class="botao">Ir para galeria</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao" id="galeria">
+            <div class="cartao reveal">
+                <h2>Galeria de Fotos</h2>
+                <p>Agora aproveite este momento e curta as fotos enquanto escuta a música.</p>
+
+                <div class="galeria">
+                    <img id="fotoGaleria" src="imagens/foto1.jpg" alt="Foto da aniversariante" loading="eager" fetchpriority="high" decoding="async">
+                </div>
+
+                <div class="botoes">
+                    <a href="#confirmacao" class="botao">Ir para confirmação</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao" id="confirmacao">
+            <div class="cartao reveal">
+                <h2>Confirmação de Presença</h2>
+                <p>Para ajudar na organização, confirme sua presença pelo WhatsApp.</p>
+
+                <div class="campo-confirmacao">
+                    <label for="nomeConvidado" class="label-campo">Nome completo</label>
+                    <input
+                        id="nomeConvidado"
+                        class="input-campo"
+                        type="text"
+                        autocomplete="name"
+                        placeholder="Digite seu nome completo"
+                        aria-describedby="ajudaNomeConfirmacao"
+                    >
+                    <p id="ajudaNomeConfirmacao" class="texto-ajuda">Seu nome será inserido automaticamente na mensagem.</p>
+                </div>
+
+                <div class="botoes">
+                    <button id="btnConfirmarWhatsapp" class="botao" type="button">
+                        Confirmar pelo WhatsApp
+                    </button>
+                    <a href="#inicio" class="botao secundario">Voltar ao início</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="rodape">Com carinho, Bia e família.</footer>
+    </main>
+
+    <div class="preload-galeria" aria-hidden="true">
+        <img src="imagens/foto1.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto2.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto3.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto4.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto5.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto6.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
