@@ -1,23 +1,41 @@
 const dataEvento = new Date("2026-10-03T19:00:00");
 const telefoneConfirmacao = "5541999262663";
 const tokenAcessoEsperado = "9f4c2d7b8a1e6f3c5b0d2a4e7c9f1b6a";
+const nomeImagemAbertura = "abertura";
 const nomesFotosGaleria = [
-    "foto1.jpg",
-    "foto2.jpg",
-    "foto3.jpg",
-    "foto4.jpg",
-    "foto5.jpg",
-    "foto6.jpg"
+    "foto_galeria_01",
+    "foto_galeria_02",
+    "foto_galeria_03",
+    "foto_galeria_04",
+    "foto_galeria_05",
+    "foto_galeria_06",
+    "foto_galeria_07",
+    "foto_galeria_08"
 ];
 const caminhosBaseImagens = ["imagens", "./imagens", "/imagens"];
 
-let fotosGaleria = nomesFotosGaleria.map((nome) => `imagens/${nome}`);
+let fotosGaleria = nomesFotosGaleria.map((nome) => `imagens/${nome}.jpg`);
 let caminhoImagensAtivo = "imagens";
+let formatoPreferencialImagem = "jpg";
 
 let indiceFoto = 0;
 let intervaloContador = null;
 let intervaloGaleria = null;
 let cacheFotosGaleria = [];
+
+function montarCaminhoImagem(base, nomeArquivo, formato) {
+    return `${base}/${nomeArquivo}.${formato}`;
+}
+
+function navegadorSuportaWebp() {
+    const canvas = document.createElement("canvas");
+
+    if (!canvas.getContext) {
+        return false;
+    }
+
+    return canvas.toDataURL("image/webp").indexOf("data:image/webp") === 0;
+}
 
 function obterTokenDaUrl() {
     const params = new URLSearchParams(window.location.search);
@@ -58,15 +76,37 @@ function testarCarregamentoImagem(url) {
 }
 
 async function detectarCaminhoImagens() {
-    for (const base of caminhosBaseImagens) {
-        const carregou = await testarCarregamentoImagem(`${base}/${nomesFotosGaleria[0]}`);
+    formatoPreferencialImagem = navegadorSuportaWebp() ? "webp" : "jpg";
 
-        if (carregou) {
+    for (const base of caminhosBaseImagens) {
+        const caminhoPreferencial = montarCaminhoImagem(base, nomesFotosGaleria[0], formatoPreferencialImagem);
+        const caminhoFallback = montarCaminhoImagem(base, nomesFotosGaleria[0], "jpg");
+        const carregouPreferencial = await testarCarregamentoImagem(caminhoPreferencial);
+        const carregouFallback = carregouPreferencial ? true : await testarCarregamentoImagem(caminhoFallback);
+
+        if (carregouFallback) {
             caminhoImagensAtivo = base;
-            fotosGaleria = nomesFotosGaleria.map((nome) => `${base}/${nome}`);
+            fotosGaleria = nomesFotosGaleria.map((nome) => montarCaminhoImagem(base, nome, formatoPreferencialImagem));
+
+            if (!carregouPreferencial) {
+                formatoPreferencialImagem = "jpg";
+                fotosGaleria = nomesFotosGaleria.map((nome) => montarCaminhoImagem(base, nome, "jpg"));
+            }
+
+            definirPosterAbertura();
             return;
         }
     }
+}
+
+function definirPosterAbertura() {
+    const video = document.getElementById("videoAbertura");
+
+    if (!video) {
+        return;
+    }
+
+    video.poster = montarCaminhoImagem(caminhoImagensAtivo, nomeImagemAbertura, formatoPreferencialImagem);
 }
 
 function preloadFotosGaleria() {
@@ -80,7 +120,7 @@ function preloadFotosGaleria() {
 }
 
 function montarMensagemConfirmacao(nomeCompleto) {
-    return `Oi, confirmo minha ${nomeCompleto} presença no aniversário de 15 anos da Beatriz Couceiro Cheute dia 03/10/2026.`;
+    return `Oi, confirmo minha presença ${nomeCompleto} no aniversário de 15 anos da Beatriz Couceiro Cheute dia 03/10/2026.`;
 }
 
 function enviarConfirmacaoWhatsapp() {
@@ -244,6 +284,11 @@ function trocarFotoGaleria() {
 
     indiceFoto = (indiceFoto + 1) % fotosGaleria.length;
     imagem.src = fotosGaleria[indiceFoto];
+
+    imagem.onerror = () => {
+        imagem.onerror = null;
+        imagem.src = montarCaminhoImagem(caminhoImagensAtivo, nomesFotosGaleria[indiceFoto], "jpg");
+    };
 }
 
 function definirFotoInicialGaleria() {
@@ -255,6 +300,11 @@ function definirFotoInicialGaleria() {
 
     indiceFoto = 0;
     imagem.src = fotosGaleria[indiceFoto];
+
+    imagem.onerror = () => {
+        imagem.onerror = null;
+        imagem.src = montarCaminhoImagem(caminhoImagensAtivo, nomesFotosGaleria[indiceFoto], "jpg");
+    };
 }
 
 function iniciarVideoAbertura() {

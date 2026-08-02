@@ -20,12 +20,10 @@
     <title>15 anos da Bia</title>
     <link rel="preload" as="video" href="video/abertura.mp4" type="video/mp4">
     <link rel="preload" as="audio" href="audio/musica.mp3" type="audio/mpeg">
-    <link rel="preload" as="image" href="imagens/foto1.jpg">
-    <link rel="preload" as="image" href="imagens/foto2.jpg">
-    <link rel="preload" as="image" href="imagens/foto3.jpg">
-    <link rel="preload" as="image" href="imagens/foto4.jpg">
-    <link rel="preload" as="image" href="imagens/foto5.jpg">
-    <link rel="preload" as="image" href="imagens/foto6.jpg">
+    <link rel="preload" as="image" href="imagens/abertura.webp" type="image/webp">
+    <link rel="preload" as="image" href="imagens/abertura.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="imagens/foto_galeria_01.webp" type="image/webp">
+    <link rel="preload" as="image" href="imagens/foto_galeria_01.jpg" type="image/jpeg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bloqueado acesso-pendente">
@@ -38,7 +36,7 @@
     </section>
 
     <section id="abertura" aria-label="Tela de abertura do convite">
-        <video id="videoAbertura" autoplay muted playsinline loop preload="auto" poster="imagens/foto1.jpg">
+        <video id="videoAbertura" autoplay muted playsinline loop preload="auto" poster="imagens/abertura.jpg">
             <source src="video/abertura.mp4" type="video/mp4">
             Seu navegador não suporta vídeo em HTML5.
         </video>
@@ -143,11 +141,16 @@
 
                 <div class="presentes">
                     <div class="presente">
+                        <strong>PIX</strong>
+                        <span>https://nubank.com.br/cobrar/5a04kf/6a6f5ffd-ad8e-4660-9a8b-8f74e983864d</span>
+                        <span><img src="imagens/qrcode-url.png" alt="PIX QR Code"></span>
+                    </div>                    
+                    <div class="presente">
                         <strong>Calçados número 35</strong>
                         <span>Crocs, Vans, Nike, Adidas.</span>
                     </div>
                     <div class="presente">
-                        <strong>Roupas</strong>
+                        <strong>Roupas tamanho (P)</strong>
                         <span>Blusas, jaqueta, moletom, cores neutras. Camisetas: Ordem Paranormal, AC/DC, Guns N’ Roses.</span>
                     </div>
                     <div class="presente">
@@ -210,17 +213,18 @@
 
                     <article class="duvida-item">
                         <h3>Qual é o traje?</h3>
-                        <p>Traje passeio completo.</p>
+                        <p>passeio completo.</p>
                     </article>
 
                     <article class="duvida-item">
                         <h3>Cores proibidas?</h3>
-                        <p>Lilaz e roxo são as cores da debutante.</p>
+                        <p>Lilás e roxo são as cores da debutante.</p>
                     </article>
 
                     <article class="duvida-item">
                         <h3>Confirmar presença?</h3>
                         <p>Cada detalhe desta noite está sendo cuidadosamente preparado com amor e dedicação. Por isso, pedimos que confirme sua presença até o dia 01/09/2026.</p>
+                        <p>A equipe do cerimonial só permitirá a entrada de convidados que confirmarem presença.</p>
                     </article>
                 </div>
 
@@ -236,7 +240,7 @@
                 <p>Agora aproveite este momento e curta as fotos enquanto escuta a música.</p>
 
                 <div class="galeria">
-                    <img id="fotoGaleria" src="imagens/foto1.jpg" alt="Foto da aniversariante" loading="eager" fetchpriority="high" decoding="async">
+                    <img id="fotoGaleria" src="imagens/foto_galeria_01.jpg" alt="Foto da aniversariante" loading="eager" fetchpriority="high" decoding="async">
                 </div>
 
                 <div class="botoes">
@@ -276,12 +280,22 @@
     </main>
 
     <div class="preload-galeria" aria-hidden="true">
-        <img src="imagens/foto1.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
-        <img src="imagens/foto2.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
-        <img src="imagens/foto3.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
-        <img src="imagens/foto4.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
-        <img src="imagens/foto5.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
-        <img src="imagens/foto6.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_01.webp" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_02.webp" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_03.webp" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_04.webp" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_05.webp" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_06.webp" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_07.webp" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_08.webp" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_01.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_02.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_03.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_04.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_05.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_06.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_07.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <img src="imagens/foto_galeria_08.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
     </div>
 
     <script src="script.js"></script>
