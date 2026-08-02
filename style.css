@@ -414,6 +414,19 @@ tr th {
     font-size: 15px;
 }
 
+.qr-link {
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.qr-code {
+    display: block;
+    width: 40%;
+    min-width: 120px;
+    max-width: 220px;
+    height: auto;
+}
+
 .campo-confirmacao {
     margin-top: 18px;
     text-align: left;
