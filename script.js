@@ -13,6 +13,7 @@ const nomesFotosGaleria = [
     "foto_galeria_08"
 ];
 const caminhosBaseImagens = ["imagens", "./imagens", "/imagens"];
+const cacheBustToken = Date.now().toString();
 
 let fotosGaleria = nomesFotosGaleria.map((nome) => `imagens/${nome}.jpg`);
 let caminhoImagensAtivo = "imagens";
@@ -23,8 +24,13 @@ let intervaloContador = null;
 let intervaloGaleria = null;
 let cacheFotosGaleria = [];
 
+function anexarCacheBust(url) {
+    const separador = url.includes("?") ? "&" : "?";
+    return `${url}${separador}v=${cacheBustToken}`;
+}
+
 function montarCaminhoImagem(base, nomeArquivo, formato) {
-    return `${base}/${nomeArquivo}.${formato}`;
+    return anexarCacheBust(`${base}/${nomeArquivo}.${formato}`);
 }
 
 function navegadorSuportaWebp() {
