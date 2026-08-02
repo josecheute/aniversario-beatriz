@@ -126,7 +126,7 @@ function preloadFotosGaleria() {
 }
 
 function montarMensagemConfirmacao(nomeCompleto) {
-    return `Oi, confirmo minha presença ${nomeCompleto} no aniversário de 15 anos da Beatriz Couceiro Cheute dia 03/10/2026.`;
+    return `Oi, confirmo minha presença: ${nomeCompleto}, no aniversário de 15 anos da Beatriz Couceiro Cheute, no dia 03/10/2026.`;
 }
 
 function enviarConfirmacaoWhatsapp() {
