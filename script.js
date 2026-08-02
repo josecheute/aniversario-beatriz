@@ -194,45 +194,11 @@ function abrirConvite() {
 
     reproduzirMusica();
     tentarTelaCheia();
-    atualizarEstadoSetas();
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
-}
-
-function rolarConvite(direcao) {
-    const deslocamento = Math.round(window.innerHeight * 0.82) * direcao;
-
-    window.scrollBy({
-        top: deslocamento,
-        behavior: "smooth"
-    });
-}
-
-function atualizarEstadoSetas() {
-    const setas = document.getElementById("setasNavegacao");
-    const setaSubir = document.getElementById("setaSubir");
-    const setaDescer = document.getElementById("setaDescer");
-    const convite = document.getElementById("convite");
-
-    if (!setas || !setaSubir || !setaDescer || !convite) {
-        return;
-    }
-
-    if (convite.style.display !== "block") {
-        setas.hidden = true;
-        return;
-    }
-
-    setas.hidden = false;
-
-    const noTopo = window.scrollY <= 24;
-    const noFim = window.scrollY >= (document.documentElement.scrollHeight - window.innerHeight - 24);
-
-    setaSubir.disabled = noTopo;
-    setaDescer.disabled = noFim;
 }
 
 function alternarSom() {
@@ -323,8 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const botaoSom = document.getElementById("botaoSom");
     const btnConfirmarWhatsapp = document.getElementById("btnConfirmarWhatsapp");
     const nomeConvidado = document.getElementById("nomeConvidado");
-    const setaSubir = document.getElementById("setaSubir");
-    const setaDescer = document.getElementById("setaDescer");
 
     if (!validarAcessoPorToken()) {
         return;
@@ -333,8 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btnAbrir.addEventListener("click", abrirConvite);
     botaoSom.addEventListener("click", alternarSom);
     btnConfirmarWhatsapp.addEventListener("click", enviarConfirmacaoWhatsapp);
-    setaSubir.addEventListener("click", () => rolarConvite(-1));
-    setaDescer.addEventListener("click", () => rolarConvite(1));
 
     nomeConvidado.addEventListener("keydown", (event) => {
         if (event.key !== "Enter") {
@@ -345,12 +307,8 @@ document.addEventListener("DOMContentLoaded", () => {
         enviarConfirmacaoWhatsapp();
     });
 
-    window.addEventListener("scroll", atualizarEstadoSetas, { passive: true });
-    window.addEventListener("resize", atualizarEstadoSetas);
-
     atualizarContador();
     iniciarVideoAbertura();
-    atualizarEstadoSetas();
 
     intervaloContador = setInterval(atualizarContador, 1000);
 
